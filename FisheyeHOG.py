@@ -14,6 +14,7 @@ hog.setSVMDetector(cv2.FisheyeHOGDescriptor_getDefaultPeopleDetector())
 hog.setAngleMatrix((768,768))
 hogorig = cv2.HOGDescriptor()
 hogorig.setSVMDetector(cv2.HOGDescriptor_getDefaultPeopleDetector())
+#testimg = cv2.imread('image/pedestriansimulated_random.jpg')
 testimg = cv2.imread('image/pedestriansimulated.jpg')
 draw = testimg.copy()
 
@@ -27,4 +28,5 @@ for rect in rects2:
     cv2.drawContours(draw,[box],0,(0,0,255),2)
 cv2.imshow("fisheye",draw)
 print t1-t0
+cv2.imwrite('output/detected.jpg',draw)
 cv2.waitKey(0)
